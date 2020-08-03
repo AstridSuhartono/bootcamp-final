@@ -26,7 +26,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/finalproject",
+mongoose.connect(process.env.MONGODB_URI || "mongodb://user:M4rchsalsa@ds245240.mlab.com:45240/heroku_z8f1sw09",
   { useUnifiedTopology: true, useNewUrlParser: true }
 );
 mongoose.connection.once('open', () => {
