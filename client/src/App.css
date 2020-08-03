@@ -1,0 +1,28 @@
+.brand-logo, h2{
+    font-family: 'Lobster', cursive;
+}
+
+.auth-card{
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    margin: 30px auto;
+}
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item{
+    width: 30%;
+    padding-bottom: 5px;
+}
+
+
+.home-card{
+    max-width: 640px;
+    height: max-content;
+    margin: 30px auto;
+}

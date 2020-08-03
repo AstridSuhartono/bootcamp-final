@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 function Nav() {
     return (
         <nav>
-            <div className="nav-wrapper blue Linkghten-4">
+            <div className="nav-wrapper blue Lighten-4">
                 <Link to="/" className="brand-logo left">InstaNote</Link>
                 <ul id="nav-mobile" className="right">
-                    <Link><a to="/signin">Signin</a></Link>
-                    <Link><a to="/signup">Signup</a></Link>
-                    <Link><a to="/profile">Profile</a></Link>
+                    <li><Link to="/signin">Signin</Link></li>
+                    <li><Link to="/signup">Signup</Link></li>
+                    <li><Link to="/profile">Profile</Link></li>
                 </ul>
             </div>
         </nav>
