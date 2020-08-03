@@ -20,9 +20,15 @@
     padding-bottom: 5px;
 }
 
-
 .home-card{
     max-width: 640px;
     height: max-content;
     margin: 30px auto;
+}
+
+.post-card{
+    max-width: 640px;
+    padding: 20px;
+    margin: 30px auto;
+    text-align: center;
 }

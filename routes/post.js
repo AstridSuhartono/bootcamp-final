@@ -1,8 +1,11 @@
-const router = require("express").Router();
-const db = require("../models");
+const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+const requireLogin  = require('../middleware/requireLogin');
+const Post =  mongoose.model("Post");
 
 router.get("/allpost", (req, res) => {
-    db.Post.find()
+    Post.find()
         .populate("postedBy", "_id name")
         .then((posts) => {
             res.json({ posts })
@@ -18,7 +21,7 @@ router.post("/createpost", requireLogin, (req, res) => {
         return res.status(422).json({ err: "Please fill in all the fields" });
     };
     req.user.password = undefined;
-    const post = new db.Post({
+    const post = new Post({
         title,
         body,
         postedBy: req.user

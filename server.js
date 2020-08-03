@@ -1,18 +1,23 @@
 const express = require("express");
+const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
-const routes = require("./routes");
 require('dotenv').config();
 
 const PORT = process.env.PORT || 3001;
-const app = express();
+
+//define models
+require('./models/user')
+require('./models/post')
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
-require("./models/")
+//define routes
+app.use(require('./routes/auth'))
+app.use(require('./routes/post'))
+//app.use(require('./routes/user'))
 
 
 // Serve up static assets (usually on heroku)
@@ -22,14 +27,11 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost:27017/finalproject",
-  { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true }
+  { useUnifiedTopology: true, useNewUrlParser: true }
 );
 mongoose.connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
-
-// Add routes, both API and view
-app.use(routes);
 
 // Send every other request to the React app
 // Define any API routes before this runs

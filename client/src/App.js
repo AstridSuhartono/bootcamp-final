@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Signin from "./pages/Signin";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
+import CreatePost from "./pages/Createpost";
 
 function App() {
   return (
@@ -14,14 +15,17 @@ function App() {
       <Route exact path="/" >
         <Home />
       </Route>
-      <Route exact path="/signin" >
+      <Route path="/signin" >
         <Signin />
       </Route>
-      <Route exact path="/signup" >
+      <Route path="/signup" >
         <Signup />
       </Route>
-      <Route exact path="/profile" >
+      <Route path="/profile" >
         <Profile />
+      </Route>
+      <Route path="/create" >
+        <CreatePost />
       </Route>
     </Router>
 
