@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../components/Button";
 import M from "materialize-css";
 import { useHistory } from 'react-router-dom'
@@ -9,6 +9,35 @@ const CreatePost = () => {
     const [image, setImage] = useState("");
     const [urlImage, setUrlImage] = useState("");
     const history = useHistory();
+
+    useEffect(() => {
+        if (urlImage) {
+            fetch("/createpost", {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer " + localStorage.getItem("jwt")
+                },
+                body: JSON.stringify({
+                    title,
+                    body,
+                    picture: urlImage
+                })
+            })
+                .then(res => res.json())
+                .then((data) => {
+                    console.log(data);
+                    if (data.error) {
+                        M.toast({ html: data.error });
+                    } else {
+                        M.toast({ html: "New post successfully added" });
+                        history.push("/");
+                    }
+                }).catch(err => {
+                    console.log(err);
+                })
+        }
+    }, [urlImage]);
 
     const postDetails = () => {
         const data = new FormData();
@@ -22,30 +51,7 @@ const CreatePost = () => {
             .then(res => res.json())
             .then(data => { setUrlImage(data.url) })
             .catch(err => { console.log(err) });
-        fetch("/createpost", {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer " + localStorage.getItem("jwt")
-            },
-            body: JSON.stringify({
-                title,
-                body,
-                picture: urlImage
-            })
-        })
-            .then(res => res.json())
-            .then((data) => {
-                console.log(data);
-                if (data.error) {
-                    M.toast({ html: data.error });
-                } else {
-                    M.toast({ html: "New post successfully added" });
-                    history.push("/");
-                }
-            }).catch(err => {
-                console.log(err);
-            })
+
     }
 
     return (

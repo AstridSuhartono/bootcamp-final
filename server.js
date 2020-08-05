@@ -17,7 +17,6 @@ app.use(express.json());
 //define routes
 app.use(require('./routes/auth'))
 app.use(require('./routes/post'))
-//app.use(require('./routes/user'))
 
 
 // Serve up static assets (usually on heroku)

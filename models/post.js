@@ -16,7 +16,7 @@ const postSchema = new Schema({
         default: "No image Available"
     },
     postedBy:{
-        type:mongoose.Schema.Types,
+        type:Schema.Types.ObjectId,
         ref:"User"
     }
 })
