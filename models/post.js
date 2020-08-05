@@ -10,10 +10,10 @@ const postSchema = new Schema({
         type:String,
         required:true
     },
-    photo:{
+    image:{
         type:String,
         required:true,
-        default: "No photo Available"
+        default: "No image Available"
     },
     postedBy:{
         type:mongoose.Schema.Types,
