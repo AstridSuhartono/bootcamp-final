@@ -21,10 +21,22 @@ Functionalities that are going to be included in the app:
 * adding additional comment on a post
 * deleting a post
 
+### How to Use the current development of the application
+
+* Click the link to the heroku deployment 
+* Choose Signup navigation bar to create a new account by providing name, email, and password
+* Choose Signin navigation bar to log in into the app. **Important Note :** After sign in, please refresh the page. The navigation bar is not fully finished yet. 
+* Choose Create Post navigation bar and insert all the necessary inputs before submitting the post.
+* The post should be shown automatically or by clicking the InstaNote logo at top left side.
+
+
 ### Deployment Link
 
 Github link for the repository: https://github.com/AstridSuhartono/bootcamp-final
+
 Heroku deployment link: https://astridinstanote.herokuapp.com/
+
+
 
 ### Author
 
